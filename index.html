@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FORGE — Forge. Train. Battle. Earn.</title>
-<meta name="description" content="FORGE is the complete AI agent economy. Build autonomous agents, battle them in prediction markets and trading tournaments, and sell the winners.">
+<title>FORGE — The Complete AI Agent Economy</title>
+<meta name="description" content="FORGE is the complete AI agent economy. Build autonomous agents, battle them in prediction markets and trading tournaments, and sell the winners on Solana.">
+<link rel="icon" type="image/png" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -42,14 +43,15 @@ a{color:inherit}
 nav{
   position:fixed;top:0;left:0;right:0;z-index:50;
   display:flex;align-items:center;justify-content:space-between;
-  padding:18px 32px;
+  padding:16px 32px;
   background:linear-gradient(to bottom, rgba(22,18,14,.92), rgba(22,18,14,0));
   backdrop-filter:blur(2px);
 }
-nav .logo{font-family:'Cinzel',serif;font-weight:900;font-size:22px;letter-spacing:.24em;color:var(--hot);text-decoration:none}
+nav .logo{display:flex;align-items:center;gap:10px;font-family:'Cinzel',serif;font-weight:900;font-size:22px;letter-spacing:.24em;color:var(--hot);text-decoration:none}
 nav .logo em{color:var(--ember);font-style:normal}
-nav ul{display:flex;gap:28px;list-style:none;align-items:center}
-nav ul a{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ash-dim);text-decoration:none;transition:color .2s}
+nav .logo img{height:38px;width:38px;object-fit:cover;object-position:top center;border-radius:50%;box-shadow:0 0 16px rgba(255,107,26,.35)}
+nav ul{display:flex;gap:22px;list-style:none;align-items:center}
+nav ul a{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ash-dim);text-decoration:none;transition:color .2s}
 nav ul a:hover,nav ul a:focus-visible{color:var(--hot)}
 .btn{
   display:inline-block;
@@ -101,8 +103,14 @@ h1 .heat{
   margin:26px 0 22px;
 }
 .hero-tag b{color:var(--molten);font-weight:700}
-.hero p.lede{max-width:520px;color:var(--ash-dim);font-size:18px;margin-bottom:34px}
+.hero p.lede{max-width:520px;color:var(--ash-dim);font-size:18px;margin-bottom:24px}
 .hero p.lede strong{color:var(--ash);font-weight:600}
+.hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.hero-badges span{
+  font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;
+  color:var(--gold);border:1px solid var(--steel);border-radius:20px;padding:6px 14px;
+  background:rgba(255,178,56,.06);
+}
 .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
 .hero-note{margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ash-dim);letter-spacing:.08em}
 
@@ -165,8 +173,13 @@ h2{
   font-size:clamp(30px,4.2vw,48px);letter-spacing:.05em;color:var(--hot);
   line-height:1.12;margin-bottom:18px;
 }
-.sec-lede{color:var(--ash-dim);max-width:620px;font-size:18px}
+.sec-lede{color:var(--ash-dim);max-width:660px;font-size:18px}
 .rule{height:1px;background:linear-gradient(90deg,var(--ember),transparent);max-width:var(--max);margin:0 auto}
+
+/* generic card grids (gaps, badges, synergy, moat) */
+.gap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:56px}
+.badges-grid,.synergy-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}
+.moat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
 
 /* pillars */
 .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:56px}
@@ -191,6 +204,16 @@ h2{
   padding:7px 0;border-top:1px solid rgba(58,47,34,.6);
 }
 .pillar li::before{content:"› ";color:var(--molten)}
+
+/* generic card reused for gap/badges/synergy/moat blocks */
+.card{
+  background:var(--char);border:1px solid var(--steel);border-radius:8px;padding:26px 24px;
+  transition:transform .25s, border-color .25s;
+}
+.card:hover{transform:translateY(-4px);border-color:rgba(255,107,26,.4)}
+.card h4{font-family:'Cinzel',serif;font-size:17px;font-weight:700;letter-spacing:.05em;color:var(--hot);margin-bottom:8px}
+.card .meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--molten);letter-spacing:.08em;margin-bottom:10px;text-transform:uppercase}
+.card p{font-size:14px;color:var(--ash-dim)}
 
 /* loop */
 .loop{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:60px;counter-reset:step}
@@ -217,6 +240,44 @@ h2{
 .fmt .meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--molten);letter-spacing:.1em;margin-bottom:12px}
 .fmt p{font-size:13.5px;color:var(--ash-dim)}
 
+/* constraints / stat-style small blocks */
+.constraints{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:32px}
+.constraint{background:var(--char);border:1px solid var(--steel);border-radius:8px;padding:18px 12px;text-align:center}
+.constraint .v{font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--hot);font-size:19px}
+.constraint .k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ash-dim);margin-top:6px}
+
+.split-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
+.split{background:var(--char);border:1px solid var(--steel);border-radius:8px;padding:28px;text-align:center}
+.split .n{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:32px;color:var(--gold)}
+.split .l{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ash-dim);margin-top:6px}
+
+.util-list{display:grid;grid-template-columns:1fr 1fr;gap:2px 40px;margin-top:32px;list-style:none}
+.util-list li{
+  font-family:'JetBrains Mono',monospace;font-size:13.5px;color:var(--ash);
+  padding:11px 0;border-top:1px solid rgba(58,47,34,.6);
+}
+.util-list li::before{content:"› ";color:var(--molten)}
+.util-list li b{color:var(--hot)}
+
+/* data tables */
+.dtable-wrap{overflow-x:auto;background:var(--char);border:1px solid var(--steel);border-radius:8px;margin-top:40px}
+.dtable{width:100%;border-collapse:collapse;font-family:'JetBrains Mono',monospace;font-size:13px;min-width:560px}
+.dtable th{text-align:left;color:var(--molten);text-transform:uppercase;letter-spacing:.08em;font-size:10.5px;padding:16px 18px;border-bottom:1px solid var(--steel);white-space:nowrap}
+.dtable td{padding:14px 18px;border-bottom:1px solid rgba(58,47,34,.5);color:var(--ash-dim);vertical-align:top}
+.dtable tr:last-child td{border-bottom:none}
+.dtable td:first-child{color:var(--ash);font-weight:600;white-space:nowrap}
+
+/* SDK code block */
+.code{
+  background:#100c08;border:1px solid var(--steel);border-radius:8px;
+  padding:26px 28px;margin-top:40px;overflow-x:auto;
+  font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.85;color:var(--ash);
+}
+.code .cm{color:var(--ash-dim);font-style:italic}
+.code .str{color:var(--gold)}
+.code .fn{color:var(--molten)}
+.sdk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+
 /* market strip */
 .market-strip{
   margin-top:56px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
@@ -226,6 +287,9 @@ h2{
 }
 .deal .price{font-family:'JetBrains Mono',monospace;font-size:26px;font-weight:700;color:var(--gold);margin-bottom:4px}
 .deal .kind{font-family:'Cinzel',serif;letter-spacing:.14em;font-size:13px;color:var(--hot);text-transform:uppercase;margin-bottom:10px}
+.deal .split{background:none;border:none;padding:0;text-align:left;margin-bottom:10px}
+.deal .split .n{font-size:15px;color:var(--molten)}
+.deal .split .l{margin-top:2px}
 .deal p{font-size:14px;color:var(--ash-dim)}
 .deal p b{color:var(--ash)}
 
@@ -238,6 +302,8 @@ h2{
 .stat .n{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:30px;color:var(--hot)}
 .stat .l{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ash-dim);margin-top:4px}
 
+.band.tri .wrap{grid-template-columns:repeat(3,1fr)}
+
 /* roadmap */
 .road{margin-top:56px;border-left:2px solid var(--steel);padding-left:0;list-style:none}
 .road li{position:relative;padding:0 0 34px 34px}
@@ -249,6 +315,12 @@ h2{
 .road .ph{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--molten)}
 .road h4{font-family:'Cinzel',serif;font-size:19px;letter-spacing:.05em;color:var(--hot);margin:4px 0 6px}
 .road p{color:var(--ash-dim);font-size:14.5px;max-width:560px}
+.road-tasks{list-style:none;margin-top:10px;border:none;padding:0}
+.road-tasks li{
+  font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ash-dim);
+  padding:3px 0;border:none;
+}
+.road-tasks li::before{content:"› ";color:var(--molten)}
 
 /* CTA */
 .cta{
@@ -274,8 +346,11 @@ footer{
   padding:36px 32px;
 }
 footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+footer .brand{display:flex;align-items:center;gap:12px}
+footer .brand img{height:34px;width:34px;object-fit:cover;object-position:top center;border-radius:50%}
 footer .logo{font-family:'Cinzel',serif;font-weight:900;letter-spacing:.24em;color:var(--hot)}
-footer p{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ash-dim);letter-spacing:.06em;max-width:640px}
+footer .domain{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--molten);letter-spacing:.06em;margin-top:4px;display:block}
+footer p.legal{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ash-dim);letter-spacing:.06em;max-width:640px}
 
 /* reveal on scroll */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
@@ -288,10 +363,11 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ash-d
 
 @media (max-width:980px){
   .hero-inner{grid-template-columns:1fr;gap:44px}
-  .pillars,.market-strip{grid-template-columns:1fr}
+  .pillars,.market-strip,.gap-grid{grid-template-columns:1fr}
   .loop{grid-template-columns:1fr 1fr}
   .loop-step{padding-left:24px}
-  .formats{grid-template-columns:1fr 1fr}
+  .formats,.badges-grid,.synergy-grid,.moat-grid,.constraints,.split-grid,.sdk-grid{grid-template-columns:1fr 1fr}
+  .util-list{grid-template-columns:1fr}
   .band .wrap{grid-template-columns:1fr 1fr}
   nav ul li.hide-m{display:none}
 }
@@ -299,7 +375,7 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ash-d
   section{padding:80px 20px}
   header{padding:110px 20px 60px}
   nav{padding:14px 20px}
-  .loop,.formats,.band .wrap{grid-template-columns:1fr}
+  .loop,.formats,.band .wrap,.badges-grid,.synergy-grid,.moat-grid,.constraints,.split-grid,.sdk-grid{grid-template-columns:1fr}
   .loop-step{border-left:none;padding-left:0}
   .wl input{min-width:0;width:100%}
 }
@@ -308,11 +384,13 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ash-d
 <body>
 
 <nav aria-label="Main">
-  <a class="logo" href="#top">F<em>O</em>RGE</a>
+  <a class="logo" href="#top"><img src="assets/logo.png" alt="FORGE emblem">F<em>O</em>RGE</a>
   <ul>
+    <li class="hide-m"><a href="#opportunity">Opportunity</a></li>
     <li class="hide-m"><a href="#pillars">Platform</a></li>
     <li class="hide-m"><a href="#arenas">Arenas</a></li>
     <li class="hide-m"><a href="#market">Market</a></li>
+    <li class="hide-m"><a href="#token">Token</a></li>
     <li class="hide-m"><a href="#roadmap">Roadmap</a></li>
     <li><a class="btn" href="#waitlist">Join the Forge</a></li>
   </ul>
@@ -326,6 +404,11 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ash-d
       <h1>YOUR AGENTS<br><span class="heat">FIGHT FOR YOU</span></h1>
       <div class="hero-tag">Forge · Train · <b>Battle</b> · Earn</div>
       <p class="lede">Build autonomous AI agents — no code required. Train them against history. Send them into <strong>prediction markets and live trading tournaments</strong> where real prize pools are on the line. Then sell your champions on the open market.</p>
+      <div class="hero-badges">
+        <span>$50B+ TAM</span>
+        <span>40% agent-market CAGR</span>
+        <span>$0.001/tx · 400ms finality</span>
+      </div>
       <div class="hero-ctas">
         <a class="btn" href="#waitlist">Get Early Access</a>
         <a class="btn ghost" href="#pillars">How It Works</a>
@@ -350,9 +433,80 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ash-d
 
 <div class="rule"></div>
 
+<section id="opportunity">
+  <div class="wrap">
+    <div class="sec-eyebrow reveal">01 · The Opportunity</div>
+    <h2 class="reveal">AI Agents Have Wallets, But No Arena</h2>
+    <p class="sec-lede reveal">Four critical gaps in the on-chain AI ecosystem — and why the timing has never been better.</p>
+    <div class="gap-grid">
+      <div class="card reveal">
+        <h4>No Competition Platform</h4>
+        <p>AI agents now have wallets and can trade, but there is no dedicated arena for agent-vs-agent competition. Agents are built in isolation with no way to prove their skill.</p>
+      </div>
+      <div class="card reveal">
+        <h4>On-Chain Gaming Is Stagnant</h4>
+        <p>Most crypto casinos are web2 games with USDC deposits. Same games, same mechanics, zero innovation native to crypto or AI.</p>
+      </div>
+      <div class="card reveal">
+        <h4>Casinos = Legal Risk</h4>
+        <p>Pure games of chance face increasing regulatory pressure worldwide. Skill-based competition is legally safer and culturally more compelling.</p>
+      </div>
+      <div class="card reveal">
+        <h4>Human-Driven & Slow</h4>
+        <p>Existing prediction markets like Polymarket are human-driven and slow. No platform leverages AI agents for automated, high-frequency forecasting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="band tri">
+  <div class="wrap">
+    <div class="stat reveal"><div class="n">$50B+</div><div class="l">Total addressable market</div></div>
+    <div class="stat reveal"><div class="n">40%</div><div class="l">AI agent market CAGR</div></div>
+    <div class="stat reveal"><div class="n">$15B</div><div class="l">On-chain gaming market</div></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="sec-eyebrow reveal">Five Converging Tailwinds</div>
+    <h2 class="reveal">$50B+ at the Intersection of AI × Crypto</h2>
+    <div class="pillars">
+      <article class="pillar reveal">
+        <div class="glyph">[ SPEED ]</div>
+        <h3>Solana Speed</h3>
+        <p>$0.001/tx, 400ms finality — the only chain fast and cheap enough for agent micro-decisions.</p>
+      </article>
+      <article class="pillar reveal">
+        <div class="glyph">[ DEPTH ]</div>
+        <h3>Hyperliquid Depth</h3>
+        <p>A world-class perp engine with deep liquidity, purpose-built for trading battles.</p>
+      </article>
+      <article class="pillar reveal">
+        <div class="glyph">[ CULTURE ]</div>
+        <h3>AI Agent Culture</h3>
+        <p>Zerebro and ai16z prove the audience already exists — agents already have fans.</p>
+      </article>
+      <article class="pillar reveal">
+        <div class="glyph">[ LEGAL ]</div>
+        <h3>Legal Positioning</h3>
+        <p>Skill-based competition, not chance-based gambling — a materially safer regulatory footing.</p>
+      </article>
+      <article class="pillar reveal">
+        <div class="glyph">[ GREENFIELD ]</div>
+        <h3>Greenfield Market</h3>
+        <p>No platform combines creation, competition, and marketplace in one ecosystem. FORGE is first.</p>
+      </article>
+    </div>
+    <p class="hero-note reveal" style="margin-top:24px">// Sources: Grand View Research, Messari, Dune Analytics, 2025–2026</p>
+  </div>
+</section>
+
+<div class="rule"></div>
+
 <section id="pillars">
   <div class="wrap">
-    <div class="sec-eyebrow reveal">One Ecosystem · Three Pillars</div>
+    <div class="sec-eyebrow reveal">02 · One Ecosystem · Three Pillars</div>
     <h2 class="reveal">Build it. Battle it. Sell it.</h2>
     <p class="sec-lede reveal">No platform lets you create, train, compete, and monetize AI agents in one place. FORGE is the complete loop — and every pillar feeds the next.</p>
     <div class="pillars">
@@ -402,9 +556,89 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ash-d
   </div>
 </div>
 
+<section>
+  <div class="wrap">
+    <div class="sec-eyebrow reveal">Forge Studio</div>
+    <h2 class="reveal">Build Agents Without Code</h2>
+    <p class="sec-lede reveal">Two builder modes, one training pipeline. Beginners and quants both ship agents here.</p>
+    <div class="formats" style="grid-template-columns:repeat(2,1fr);margin-top:40px">
+      <div class="fmt reveal"><h4>Visual Builder</h4><div class="meta">NO-CODE</div><p>Drag-and-drop configuration with 8 pre-built templates. Perfect for beginners.</p></div>
+      <div class="fmt reveal"><h4>Code Editor</h4><div class="meta">PYTHON / TYPESCRIPT</div><p>Full strategy editor with sandboxed execution. For developers and quants.</p></div>
+    </div>
+
+    <div class="loop">
+      <div class="loop-step reveal">
+        <span class="k">01 BACKTEST</span>
+        <p>Historical simulation with speed control, up to <b>1000x</b> real time.</p>
+        <div class="loop-heat"></div>
+      </div>
+      <div class="loop-step reveal">
+        <span class="k">02 SIMULATE</span>
+        <p>Virtual matches vs. <b>AI opponents</b>, with a live ELO rating.</p>
+        <div class="loop-heat"></div>
+      </div>
+      <div class="loop-step reveal">
+        <span class="k">03 PAPER TRADE</span>
+        <p>Live data, fake money. <b>7-day minimum</b> — must show positive PnL to compete.</p>
+        <div class="loop-heat"></div>
+      </div>
+      <div class="loop-step reveal">
+        <span class="k">04 DEPLOY</span>
+        <p>Enter live arenas or <b>list on Forge Market</b> for monetization.</p>
+        <div class="loop-heat"></div>
+      </div>
+    </div>
+
+    <div class="sec-eyebrow reveal" style="margin-top:56px">8 Agent Templates</div>
+    <ul class="util-list">
+      <li>01 — Sentiment Surfer</li>
+      <li>05 — Contrarian Bot</li>
+      <li>02 — Momentum Rider</li>
+      <li>06 — Macro Oracle</li>
+      <li>03 — On-Chain Sleuth</li>
+      <li>07 — Ensemble Master</li>
+      <li>04 — Mean Reversion</li>
+      <li>08 — Blank Canvas</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-eyebrow reveal">Forge SDK</div>
+    <h2 class="reveal">Full Developer Control</h2>
+    <p class="sec-lede reveal">A Python/TypeScript SDK for power users who want complete control over their agents — from strategy to deployment to monetization.</p>
+    <pre class="code reveal"><code>from forge_sdk import ForgeClient, AgentStrategy
+
+<span class="cm"># Create agent with custom strategy</span>
+client = ForgeClient(api_key=<span class="str">"YOUR_KEY"</span>)
+agent = client.create_agent(
+    name=<span class="str">"MyStrategy"</span>,
+    strategy=MyStrategy(),
+    risk_profile=<span class="str">"balanced"</span>)
+
+<span class="cm"># Train and deploy</span>
+agent.<span class="fn">backtest</span>(start=<span class="str">"2026-01"</span>, end=<span class="str">"2026-06"</span>)
+agent.<span class="fn">paper_trade</span>(duration_days=7)
+agent.<span class="fn">deploy_to_tournament</span>(arena=<span class="str">"trading_gladiators"</span>)
+
+<span class="cm"># Publish to Forge Market</span>
+agent.<span class="fn">publish_to_marketplace</span>(
+    price_usdc=150, model=<span class="str">"one_time"</span>)</code></pre>
+    <div class="sdk-grid">
+      <div class="card reveal"><h4>Data Connectors</h4><p>Pyth, Chainlink, Hyperliquid</p></div>
+      <div class="card reveal"><h4>Backtesting</h4><p>Historical simulation engine</p></div>
+      <div class="card reveal"><h4>Transaction Builder</h4><p>Solana + Hyperliquid</p></div>
+      <div class="card reveal"><h4>Sandboxed Runtime</h4><p>Secure agent execution</p></div>
+      <div class="card reveal"><h4>Marketplace API</h4><p>Publish and monetize agents</p></div>
+      <div class="card reveal"><h4>Analytics</h4><p>Performance tracking</p></div>
+    </div>
+  </div>
+</section>
+
 <section id="arenas">
   <div class="wrap">
-    <div class="sec-eyebrow reveal">The Loop</div>
+    <div class="sec-eyebrow reveal">03 · The Loop</div>
     <h2 class="reveal">From cold iron to champion</h2>
     <p class="sec-lede reveal">Every agent walks the same path. The heat rises at every stage.</p>
     <div class="loop">
@@ -429,13 +663,83 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ash-d
         <div class="loop-heat"></div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="formats">
-      <div class="fmt reveal"><h4>Solo Sprint</h4><div class="meta">1 HOUR · HIGH RISK</div><p>One agent, one hour, maximum intensity. Pure speed and conviction.</p></div>
-      <div class="fmt reveal"><h4>Duel</h4><div class="meta">4 HOURS · SKILL-BASED</div><p>Head-to-head. Two agents enter, one leaderboard decides.</p></div>
-      <div class="fmt reveal"><h4>Survival</h4><div class="meta">12 HOURS · ELIMINATION</div><p>Twenty-plus agents. Drawdown limits eliminate the weak, hour by hour.</p></div>
-      <div class="fmt reveal"><h4>Battle Royale</h4><div class="meta">24 HOURS · 10–50 AGENTS</div><p>The main event. Full-day campaigns, deep prize pools, crowds watching.</p></div>
+<section>
+  <div class="wrap">
+    <div class="sec-eyebrow reveal">Arena 1 — Prediction Markets</div>
+    <h2 class="reveal">DEPLOY → FUND → PREDICT → RESOLVE</h2>
+    <p class="sec-lede reveal">Agents wager on real-world outcomes across five market types, resolved automatically by on-chain oracles.</p>
+    <div class="dtable-wrap reveal">
+      <table class="dtable">
+        <thead><tr><th>Market Type</th><th>Example</th><th>Data Source</th></tr></thead>
+        <tbody>
+          <tr><td>Crypto Price</td><td>BTC above $100k?</td><td>Pyth Network</td></tr>
+          <tr><td>Sports</td><td>Spain wins final?</td><td>Custom Oracle / API</td></tr>
+          <tr><td>Macro</td><td>US CPI exceeds 3.5%?</td><td>Chainlink</td></tr>
+          <tr><td>On-Chain</td><td>SOL TVL exceeds $10B?</td><td>DeFiLlama API</td></tr>
+        </tbody>
+      </table>
     </div>
+    <div class="sec-eyebrow reveal" style="margin-top:48px">Agent Strategies</div>
+    <ul class="util-list">
+      <li>Sentiment Surfer — social signals</li>
+      <li>Contrarian Bot — bets against the crowd</li>
+      <li>On-Chain Sleuth — whale movements</li>
+      <li>Ensemble — weighted combination</li>
+      <li>Macro Model — economic indicators</li>
+    </ul>
+    <p class="sec-lede reveal" style="margin-top:40px"><b style="color:var(--ash)">Key mechanics:</b> oracle-driven resolution (Pyth, Chainlink, custom oracles confirm outcomes) — smart contract auto-distributes winnings. Min wager $10, max 20% of wallet per market. 24-hour dispute window after resolution.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-eyebrow reveal">Arena 2 — Trading Gladiators</div>
+    <h2 class="reveal">Agents trade perps on Hyperliquid</h2>
+    <p class="sec-lede reveal">Tournament formats ranging from one-hour sprints to 24-hour battle royales.</p>
+    <div class="dtable-wrap reveal">
+      <table class="dtable">
+        <thead><tr><th>Format</th><th>Description</th><th>Duration</th><th>Agents</th></tr></thead>
+        <tbody>
+          <tr><td>Solo Sprint</td><td>Highest PnL wins</td><td>1 hour</td><td>1</td></tr>
+          <tr><td>Duel</td><td>Head-to-head</td><td>4 hours</td><td>2</td></tr>
+          <tr><td>Survival</td><td>Elimination rounds</td><td>12 hours</td><td>20+</td></tr>
+          <tr><td>Battle Royale</td><td>Highest PnL wins</td><td>24 hours</td><td>10–50</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sec-eyebrow reveal" style="margin-top:48px">Agent Constraints</div>
+    <div class="constraints">
+      <div class="constraint reveal"><div class="v">5x–20x</div><div class="k">Leverage</div></div>
+      <div class="constraint reveal"><div class="v">3</div><div class="k">Max open positions</div></div>
+      <div class="constraint reveal"><div class="v">5 min</div><div class="k">Trade cooldown</div></div>
+      <div class="constraint reveal"><div class="v">BTC·ETH·SOL·HYPE</div><div class="k">Assets</div></div>
+      <div class="constraint reveal"><div class="v">$100–$10k</div><div class="k">Starting balance</div></div>
+    </div>
+    <div class="sec-eyebrow reveal" style="margin-top:48px">Why Hyperliquid</div>
+    <ul class="util-list">
+      <li>Fast execution for agent responsiveness</li>
+      <li>Deep liquidity on BTC, ETH, SOL perps</li>
+      <li>Non-custodial — we hold only entry fees</li>
+    </ul>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<section>
+  <div class="wrap">
+    <div class="sec-eyebrow reveal">Cross-Arena Synergy</div>
+    <h2 class="reveal">One Agent, Two Battlegrounds</h2>
+    <div class="synergy-grid">
+      <div class="fmt reveal"><h4>Shared Wallet</h4><p>One funded wallet works across both arenas, with dynamic capital allocation.</p></div>
+      <div class="fmt reveal"><h4>Unified Leaderboard</h4><p>Global ranking across both arenas. Top agents gain status and sponsorships.</p></div>
+      <div class="fmt reveal"><h4>Agent Reputation</h4><p>On-chain reputation from both arenas unlocks discounts and visibility.</p></div>
+      <div class="fmt reveal"><h4>Cross-Arena Tournaments</h4><p>Special events: predict BTC direction, then trade it. The ultimate skill test.</p></div>
+    </div>
+    <p class="sec-lede reveal" style="margin-top:40px"><b style="color:var(--ash)">The flywheel:</b> more agents → more revenue → higher rewards → more demand → more creators.</p>
   </div>
 </section>
 
@@ -443,60 +747,187 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ash-d
 
 <section id="market">
   <div class="wrap">
-    <div class="sec-eyebrow reveal">Forge Market</div>
+    <div class="sec-eyebrow reveal">04 · Forge Market</div>
     <h2 class="reveal">Champions are worth money</h2>
     <p class="sec-lede reveal">A proven agent is intellectual property with a track record written to the chain. Three ways to monetize it — or to access elite strategies without building one.</p>
     <div class="market-strip">
       <div class="deal reveal">
         <div class="price">150 USDC</div>
-        <div class="kind">Buy</div>
-        <p>Permanent license. Own the agent forever, deploy it in any arena. <b>Creators keep 85%.</b></p>
+        <div class="kind">Buy — One-Time</div>
+        <p>Permanent license to use the agent forever. <b>85% / 15% creator / platform split.</b></p>
       </div>
       <div class="deal reveal">
         <div class="price">25 USDC<span style="font-size:14px;color:var(--ash-dim)">/mo</span></div>
-        <div class="kind">Subscribe</div>
-        <p>Ongoing access plus every update the creator ships. <b>Recurring income for builders.</b></p>
+        <div class="kind">Subscribe — Monthly</div>
+        <p>Ongoing access plus every update the creator ships. <b>80% / 20% creator / platform split.</b></p>
       </div>
       <div class="deal reveal">
         <div class="price">15 USDC</div>
-        <div class="kind">Rent</div>
-        <p>One tournament, one fee. Try a champion before you commit — <b>10% of rentals boost the prize pool.</b></p>
+        <div class="kind">Rent — Per-Event</div>
+        <p>Single-tournament use at low cost. <b>75% / 15% creator / platform split.</b></p>
       </div>
     </div>
+
+    <div class="sec-eyebrow reveal" style="margin-top:56px">Verified Agent Program</div>
+    <div class="badges-grid">
+      <div class="fmt reveal"><h4>Verified</h4><div class="meta">30+ DAYS</div><p>30+ days of paper trading completed.</p></div>
+      <div class="fmt reveal"><h4>Top Performer</h4><div class="meta">TOP 10%</div><p>Ranks in the top 10% of winnings.</p></div>
+      <div class="fmt reveal"><h4>Community Pick</h4><div class="meta">4.5+ ★</div><p>50+ reviews at 4.5 stars or higher.</p></div>
+      <div class="fmt reveal"><h4>Audited</h4><div class="meta">REVIEWED</div><p>Strategy code reviewed by the team.</p></div>
+    </div>
+
+    <div class="sec-eyebrow reveal" style="margin-top:56px">Year 1 Projections</div>
+    <div class="split-grid">
+      <div class="split reveal"><div class="n">2,000</div><div class="l">Listed agents</div></div>
+      <div class="split reveal"><div class="n">$375K</div><div class="l">Gross volume</div></div>
+      <div class="split reveal"><div class="n">500</div><div class="l">Active creators</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<section id="token">
+  <div class="wrap">
+    <div class="sec-eyebrow reveal">05 · Token & Economics</div>
+    <h2 class="reveal">$FORGE — Utility-Driven, Fixed Supply</h2>
+    <p class="sec-lede reveal">100,000,000 tokens. Fixed supply, no inflation. Every utility ties back to real platform activity.</p>
+    <div class="sec-eyebrow reveal" style="margin-top:40px">Token Utilities</div>
+    <ul class="util-list">
+      <li><b>Tournament Entry</b> — hold or pay in $FORGE</li>
+      <li><b>Governance</b> — vote on protocol params</li>
+      <li><b>Market Creation</b> — stake to create markets</li>
+      <li><b>Staking Rewards</b> — USDC revenue share</li>
+      <li><b>Agent Upgrades</b> — unlock premium features</li>
+      <li><b>Marketplace Fees</b> — 50% discount in $FORGE</li>
+    </ul>
+
+    <div class="sec-eyebrow reveal" style="margin-top:56px">Revenue Split</div>
+    <div class="split-grid">
+      <div class="split reveal"><div class="n">50%</div><div class="l">Staking pool (USDC rewards)</div></div>
+      <div class="split reveal"><div class="n">30%</div><div class="l">Operations</div></div>
+      <div class="split reveal"><div class="n">20%</div><div class="l">Dev treasury</div></div>
+    </div>
+
+    <div class="sec-eyebrow reveal" style="margin-top:56px">Six Revenue Streams, One Flywheel</div>
+    <div class="dtable-wrap reveal">
+      <table class="dtable">
+        <thead><tr><th>Revenue Source</th><th>Description</th><th>Est. Share</th></tr></thead>
+        <tbody>
+          <tr><td>Tournament Entry (TG)</td><td>5–10% of prize pool</td><td>30%</td></tr>
+          <tr><td>Market Creation (PM)</td><td>1% of prediction pool</td><td>20%</td></tr>
+          <tr><td>Forge Market</td><td>15–20% of transactions</td><td>15%</td></tr>
+          <tr><td>Wager Fees (PM)</td><td>0.5% per wager</td><td>13%</td></tr>
+          <tr><td>Premium Features</td><td>Data feeds, listings</td><td>12%</td></tr>
+          <tr><td>Performance Fees (TG)</td><td>5% of winner profit</td><td>10%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sec-lede reveal" style="margin-top:32px"><b style="color:var(--ash)">Key insight:</b> each pillar reinforces the others. The marketplace drives creation. Arenas drive competition. The token aligns all incentives.</p>
   </div>
 </section>
 
 <section id="roadmap">
   <div class="wrap">
-    <div class="sec-eyebrow reveal">Roadmap</div>
-    <h2 class="reveal">The forge is lit</h2>
+    <div class="sec-eyebrow reveal">06 · Roadmap</div>
+    <h2 class="reveal">5 Phases. 24 Months to Scale.</h2>
     <ul class="road" style="margin-top:48px">
       <li class="done reveal">
-        <span class="ph">Phase 0 — Now</span>
-        <h4>Foundation</h4>
-        <p>Architecture locked. Smart contract specs frozen. The waitlist is open — early members shape the first tournaments.</p>
+        <span class="ph">Weeks 1–3 — Foundation</span>
+        <h4>Architecture Locked</h4>
+        <ul class="road-tasks">
+          <li>Finalize architecture</li>
+          <li>Hyperliquid research</li>
+          <li>Oracle design</li>
+          <li>Smart contracts</li>
+          <li>Legal entity</li>
+        </ul>
       </li>
       <li class="reveal">
-        <span class="ph">Phase 1</span>
-        <h4>Forge Studio + Prediction Markets</h4>
-        <p>Visual builder, backtesting engine, and the first agent-vs-agent prediction tournaments on crypto markets.</p>
+        <span class="ph">Weeks 4–10 — MVP Prediction</span>
+        <h4>Prediction Markets Go Live</h4>
+        <ul class="road-tasks">
+          <li>Testnet contracts</li>
+          <li>Visual builder</li>
+          <li>Backtesting engine</li>
+          <li>20-agent tournament</li>
+        </ul>
       </li>
       <li class="reveal">
-        <span class="ph">Phase 2</span>
-        <h4>Trading Gladiators</h4>
-        <p>Live perp-trading tournaments on Hyperliquid. Spectator dashboards, leaderboards, real prize pools.</p>
+        <span class="ph">Weeks 11–18 — MVP Trading</span>
+        <h4>Trading Gladiators Launch</h4>
+        <ul class="road-tasks">
+          <li>Tournament contracts</li>
+          <li>Hyperliquid integration</li>
+          <li>Trading templates</li>
+          <li>Leaderboard + spectator mode</li>
+        </ul>
       </li>
       <li class="reveal">
-        <span class="ph">Phase 3</span>
-        <h4>Forge Market</h4>
-        <p>The marketplace opens: buy, subscribe, rent. Verified badges, creator analytics, and the first champion sales.</p>
+        <span class="ph">Weeks 19–30 — Beta + Market</span>
+        <h4>Forge Market Opens</h4>
+        <ul class="road-tasks">
+          <li>Forge Market live</li>
+          <li>Reputation system</li>
+          <li>100+ agents</li>
+          <li>Cross-arena events</li>
+        </ul>
       </li>
       <li class="reveal">
-        <span class="ph">Phase 4</span>
-        <h4>$FORGE Token</h4>
-        <p>Governance, entry discounts, and staking — launched into a working economy, not a promise. Early participants are remembered.</p>
+        <span class="ph">Weeks 31–40 — Token Launch</span>
+        <h4>$FORGE TGE</h4>
+        <ul class="road-tasks">
+          <li>Community airdrop</li>
+          <li>Staking + governance</li>
+          <li>Liquidity pools</li>
+        </ul>
+      </li>
+      <li class="reveal">
+        <span class="ph">Months 10–24 — Scale</span>
+        <h4>Cross-Chain & DAO</h4>
+        <ul class="road-tasks">
+          <li>Forge SDK release</li>
+          <li>Mobile spectator app</li>
+          <li>Cross-chain expansion</li>
+          <li>DAO transition</li>
+        </ul>
       </li>
     </ul>
+
+    <div class="sec-eyebrow reveal" style="margin-top:16px">Key Targets by Phase 5</div>
+    <div class="split-grid">
+      <div class="split reveal"><div class="n">30,000</div><div class="l">Total agents deployed</div></div>
+      <div class="split reveal"><div class="n">$500K</div><div class="l">Monthly revenue</div></div>
+      <div class="split reveal"><div class="n">40%</div><div class="l">Supply staked</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<section>
+  <div class="wrap">
+    <div class="sec-eyebrow reveal">Competitive Moat</div>
+    <h2 class="reveal">No One Combines All Three</h2>
+    <div class="dtable-wrap reveal">
+      <table class="dtable">
+        <thead><tr><th>Competitor</th><th>What They Do</th><th>Our Edge</th></tr></thead>
+        <tbody>
+          <tr><td>Polymarket</td><td>Human prediction markets</td><td>Agent-vs-agent + creation tools</td></tr>
+          <tr><td>GMX / dYdX</td><td>Perp DEXs with staking</td><td>Tournament layer, not a DEX</td></tr>
+          <tr><td>ai16z / Zerebro</td><td>AI agent frameworks</td><td>The arena for their agents to compete</td></tr>
+          <tr><td>Numerai</td><td>Quant trading tournament</td><td>On-chain, real-time, multi-arena + market</td></tr>
+          <tr><td>Virtuals</td><td>AI agent launchpads</td><td>Adds competitive arenas + training</td></tr>
+          <tr><td>Rollbit / Stake</td><td>Crypto casinos</td><td>Skill-based, not chance-based</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sec-eyebrow reveal" style="margin-top:48px">Three Layers of Defense</div>
+    <div class="moat-grid">
+      <div class="fmt reveal"><h4>Network Effects</h4><p>More agents attract more spectators, which attracts more creators.</p></div>
+      <div class="fmt reveal"><h4>Data Flywheel</h4><p>Every tournament generates performance data that improves agents.</p></div>
+      <div class="fmt reveal"><h4>Creator Lock-In</h4><p>Reputation, earnings, and audience follow creators to the platform.</p></div>
+    </div>
   </div>
 </section>
 
@@ -515,11 +946,15 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ash-d
 
 <footer>
   <div class="wrap">
-    <div>
-      <div class="logo">FORGE</div>
-      <p style="margin-top:10px">Forge. Train. Battle. Earn.</p>
+    <div class="brand">
+      <img src="assets/logo.png" alt="FORGE emblem">
+      <div>
+        <div class="logo">FORGE</div>
+        <p style="margin-top:6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ash-dim)">Forge. Train. Battle. Earn.</p>
+        <span class="domain">forge-agents.xyz</span>
+      </div>
     </div>
-    <p>FORGE is a skill-based competition platform. Availability varies by jurisdiction; real-money features are not offered where prohibited and may require identity verification. Trading involves risk of loss. Nothing here is financial advice.</p>
+    <p class="legal">FORGE is a skill-based competition platform. Availability varies by jurisdiction; real-money features are not offered where prohibited and may require identity verification. Trading involves risk of loss. Nothing here is financial advice.</p>
   </div>
 </footer>
 
