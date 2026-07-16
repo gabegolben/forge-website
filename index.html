@@ -5,29 +5,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FORGE — The Complete AI Agent Economy</title>
 <meta name="description" content="FORGE is the complete AI agent economy. Build autonomous agents, battle them in prediction markets and trading tournaments, and sell the winners on Solana.">
-<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="icon" type="image/png" href="assets/emblem.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --iron:#16120e;
-  --char:#211a13;
-  --char-2:#2a2118;
-  --steel:#3a2f22;
-  --ash:#e8dfd3;
-  --ash-dim:#a3937f;
-  --ember:#ff6b1a;
-  --molten:#ff9e2c;
-  --hot:#ffe8c2;
-  --gold:#ffb238;
+  --iron:#0f141a;
+  --char:#151c24;
+  --char-2:#1b2531;
+  --steel:#2a3746;
+  --ash:#dae4ed;
+  --ash-dim:#8b9dad;
+  --ember:#2fb9e8;
+  --molten:#5cd1ff;
+  --hot:#ecf5fc;
+  --gold:#f5953f;
   --cold:#7a8b99;
   --max:1160px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  background:var(--iron);
+  background:
+    radial-gradient(ellipse 90% 55% at 50% -5%, #18212b 0%, transparent 60%),
+    var(--iron);
   color:var(--ash);
   font-family:'Instrument Sans',system-ui,sans-serif;
   font-size:17px;
@@ -44,12 +46,12 @@ nav{
   position:fixed;top:0;left:0;right:0;z-index:50;
   display:flex;align-items:center;justify-content:space-between;
   padding:16px 32px;
-  background:linear-gradient(to bottom, rgba(22,18,14,.92), rgba(22,18,14,0));
+  background:linear-gradient(to bottom, rgba(15,20,26,.92), rgba(15,20,26,0));
   backdrop-filter:blur(2px);
 }
 nav .logo{display:flex;align-items:center;gap:10px;font-family:'Cinzel',serif;font-weight:900;font-size:22px;letter-spacing:.24em;color:var(--hot);text-decoration:none}
 nav .logo em{color:var(--ember);font-style:normal}
-nav .logo img{height:38px;width:38px;object-fit:cover;object-position:top center;border-radius:50%;box-shadow:0 0 16px rgba(255,107,26,.35)}
+nav .logo img{height:40px;width:40px;object-fit:cover;border-radius:50%;box-shadow:0 0 18px rgba(47,185,232,.45)}
 nav ul{display:flex;gap:22px;list-style:none;align-items:center}
 nav ul a{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ash-dim);text-decoration:none;transition:color .2s}
 nav ul a:hover,nav ul a:focus-visible{color:var(--hot)}
@@ -59,12 +61,12 @@ nav ul a:hover,nav ul a:focus-visible{color:var(--hot)}
   letter-spacing:.14em;text-transform:uppercase;
   color:var(--iron);background:linear-gradient(100deg,var(--ember),var(--molten));
   padding:12px 22px;border-radius:3px;text-decoration:none;border:none;cursor:pointer;
-  box-shadow:0 0 24px rgba(255,107,26,.25);
+  box-shadow:0 0 24px rgba(47,185,232,.25);
   transition:transform .15s, box-shadow .2s;
 }
-.btn:hover,.btn:focus-visible{transform:translateY(-2px);box-shadow:0 0 40px rgba(255,158,44,.45)}
+.btn:hover,.btn:focus-visible{transform:translateY(-2px);box-shadow:0 0 40px rgba(92,209,255,.45)}
 .btn.ghost{background:none;color:var(--molten);border:1px solid var(--steel);box-shadow:none}
-.btn.ghost:hover{border-color:var(--ember);box-shadow:0 0 20px rgba(255,107,26,.2)}
+.btn.ghost:hover{border-color:var(--ember);box-shadow:0 0 20px rgba(47,185,232,.2)}
 :focus-visible{outline:2px solid var(--molten);outline-offset:3px}
 
 /* ---------- hero ---------- */
@@ -91,7 +93,7 @@ h1{
   font-size:clamp(56px,8.5vw,108px);
   line-height:.98;letter-spacing:.06em;
   color:var(--hot);
-  text-shadow:0 0 60px rgba(255,107,26,.35);
+  text-shadow:0 0 60px rgba(47,185,232,.35);
 }
 h1 .heat{
   background:linear-gradient(180deg,var(--hot) 0%,var(--molten) 55%,var(--ember) 100%);
@@ -109,18 +111,18 @@ h1 .heat{
 .hero-badges span{
   font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;
   color:var(--gold);border:1px solid var(--steel);border-radius:20px;padding:6px 14px;
-  background:rgba(255,178,56,.06);
+  background:rgba(245,149,63,.06);
 }
 .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
 .hero-note{margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ash-dim);letter-spacing:.08em}
 
 /* ---------- live arena panel (signature) ---------- */
 .arena-panel{
-  background:linear-gradient(160deg,var(--char) 0%,#1a1410 100%);
+  background:linear-gradient(160deg,var(--char) 0%,#10161d 100%);
   border:1px solid var(--steel);
   border-radius:8px;
   overflow:hidden;
-  box-shadow:0 30px 80px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,232,194,.05);
+  box-shadow:0 30px 80px rgba(0,0,0,.55), inset 0 1px 0 rgba(236,245,252,.05);
 }
 .arena-head{
   display:flex;justify-content:space-between;align-items:center;
@@ -137,7 +139,7 @@ h1 .heat{
   gap:10px;align-items:center;
   padding:10px 18px;
   font-family:'JetBrains Mono',monospace;font-size:13px;
-  border-bottom:1px solid rgba(58,47,34,.5);
+  border-bottom:1px solid rgba(42,55,70,.5);
   transition:background .4s;
 }
 .board-row:last-child{border-bottom:none}
@@ -147,9 +149,9 @@ h1 .heat{
 .board-row .pnl{text-align:right;font-weight:700}
 .board-row .bar{height:4px;border-radius:2px;background:var(--steel);overflow:hidden}
 .board-row .bar span{display:block;height:100%;border-radius:2px;transition:width .8s ease}
-.pnl.up{color:var(--gold);text-shadow:0 0 14px rgba(255,178,56,.35)}
+.pnl.up{color:var(--gold);text-shadow:0 0 14px rgba(245,149,63,.35)}
 .pnl.down{color:var(--cold)}
-.flash{background:rgba(255,107,26,.07)}
+.flash{background:rgba(47,185,232,.07)}
 .feed{
   border-top:1px solid var(--steel);
   padding:12px 18px;height:96px;overflow:hidden;
@@ -172,7 +174,11 @@ h2{
   font-family:'Cinzel',serif;font-weight:700;
   font-size:clamp(30px,4.2vw,48px);letter-spacing:.05em;color:var(--hot);
   line-height:1.12;margin-bottom:18px;
+  background:linear-gradient(180deg,#f4fafe 0%,#c9d9e6 60%,#8fa7ba 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  width:fit-content;
 }
+.cta h2{margin-left:auto;margin-right:auto}
 .sec-lede{color:var(--ash-dim);max-width:660px;font-size:18px}
 .rule{height:1px;background:linear-gradient(90deg,var(--ember),transparent);max-width:var(--max);margin:0 auto}
 
@@ -188,7 +194,7 @@ h2{
   padding:32px 28px;position:relative;overflow:hidden;
   transition:transform .25s, border-color .25s;
 }
-.pillar:hover{transform:translateY(-4px);border-color:rgba(255,107,26,.5)}
+.pillar:hover{transform:translateY(-4px);border-color:rgba(47,185,232,.5)}
 .pillar::after{
   content:"";position:absolute;left:0;right:0;top:0;height:2px;
   background:linear-gradient(90deg,var(--ember),transparent 70%);
@@ -201,7 +207,7 @@ h2{
 .pillar ul{list-style:none}
 .pillar li{
   font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--ash);
-  padding:7px 0;border-top:1px solid rgba(58,47,34,.6);
+  padding:7px 0;border-top:1px solid rgba(42,55,70,.6);
 }
 .pillar li::before{content:"› ";color:var(--molten)}
 
@@ -210,7 +216,7 @@ h2{
   background:var(--char);border:1px solid var(--steel);border-radius:8px;padding:26px 24px;
   transition:transform .25s, border-color .25s;
 }
-.card:hover{transform:translateY(-4px);border-color:rgba(255,107,26,.4)}
+.card:hover{transform:translateY(-4px);border-color:rgba(47,185,232,.4)}
 .card h4{font-family:'Cinzel',serif;font-size:17px;font-weight:700;letter-spacing:.05em;color:var(--hot);margin-bottom:8px}
 .card .meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--molten);letter-spacing:.08em;margin-bottom:10px;text-transform:uppercase}
 .card p{font-size:14px;color:var(--ash-dim)}
@@ -226,8 +232,8 @@ h2{
 .loop-step p{color:var(--ash-dim);font-size:14.5px}
 .loop-step p b{color:var(--ash)}
 .loop-heat{height:3px;margin-top:22px;border-radius:2px}
-.loop-step:nth-child(1) .loop-heat{background:#5a3a1c}
-.loop-step:nth-child(2) .loop-heat{background:#a34d14}
+.loop-step:nth-child(1) .loop-heat{background:#1d4258}
+.loop-step:nth-child(2) .loop-heat{background:#1f7fa8}
 .loop-step:nth-child(3) .loop-heat{background:var(--ember)}
 .loop-step:nth-child(4) .loop-heat{background:linear-gradient(90deg,var(--molten),var(--hot))}
 
@@ -254,7 +260,7 @@ h2{
 .util-list{display:grid;grid-template-columns:1fr 1fr;gap:2px 40px;margin-top:32px;list-style:none}
 .util-list li{
   font-family:'JetBrains Mono',monospace;font-size:13.5px;color:var(--ash);
-  padding:11px 0;border-top:1px solid rgba(58,47,34,.6);
+  padding:11px 0;border-top:1px solid rgba(42,55,70,.6);
 }
 .util-list li::before{content:"› ";color:var(--molten)}
 .util-list li b{color:var(--hot)}
@@ -263,13 +269,13 @@ h2{
 .dtable-wrap{overflow-x:auto;background:var(--char);border:1px solid var(--steel);border-radius:8px;margin-top:40px}
 .dtable{width:100%;border-collapse:collapse;font-family:'JetBrains Mono',monospace;font-size:13px;min-width:560px}
 .dtable th{text-align:left;color:var(--molten);text-transform:uppercase;letter-spacing:.08em;font-size:10.5px;padding:16px 18px;border-bottom:1px solid var(--steel);white-space:nowrap}
-.dtable td{padding:14px 18px;border-bottom:1px solid rgba(58,47,34,.5);color:var(--ash-dim);vertical-align:top}
+.dtable td{padding:14px 18px;border-bottom:1px solid rgba(42,55,70,.5);color:var(--ash-dim);vertical-align:top}
 .dtable tr:last-child td{border-bottom:none}
 .dtable td:first-child{color:var(--ash);font-weight:600;white-space:nowrap}
 
 /* SDK code block */
 .code{
-  background:#100c08;border:1px solid var(--steel);border-radius:8px;
+  background:#0a0f14;border:1px solid var(--steel);border-radius:8px;
   padding:26px 28px;margin-top:40px;overflow-x:auto;
   font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.85;color:var(--ash);
 }
@@ -296,7 +302,7 @@ h2{
 /* stats band */
 .band{
   border-top:1px solid var(--steel);border-bottom:1px solid var(--steel);
-  background:linear-gradient(180deg,rgba(255,107,26,.05),transparent);
+  background:linear-gradient(180deg,rgba(47,185,232,.05),transparent);
 }
 .band .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:44px 0}
 .stat .n{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:30px;color:var(--hot)}
@@ -306,12 +312,12 @@ h2{
 
 /* roadmap */
 .road{margin-top:56px;border-left:2px solid var(--steel);padding-left:0;list-style:none}
-.road li{position:relative;padding:0 0 34px 34px}
-.road li::before{
+.road > li{position:relative;padding:0 0 34px 34px}
+.road > li::before{
   content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;
   background:var(--iron);border:2px solid var(--ember);
 }
-.road li.done::before{background:var(--ember);box-shadow:0 0 12px var(--ember)}
+.road > li.done::before{background:var(--ember);box-shadow:0 0 12px var(--ember)}
 .road .ph{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--molten)}
 .road h4{font-family:'Cinzel',serif;font-size:19px;letter-spacing:.05em;color:var(--hot);margin:4px 0 6px}
 .road p{color:var(--ash-dim);font-size:14.5px;max-width:560px}
@@ -326,10 +332,20 @@ h2{
 .cta{
   text-align:center;
   background:
-    radial-gradient(ellipse 60% 80% at 50% 110%, rgba(255,107,26,.22), transparent 70%),
+    radial-gradient(ellipse 60% 80% at 50% 110%, rgba(47,185,232,.22), transparent 70%),
     var(--iron);
 }
 .cta h2{font-size:clamp(34px,5vw,60px)}
+.cta .emblem{
+  width:150px;height:150px;border-radius:50%;object-fit:cover;
+  margin:0 auto 32px;display:block;
+  box-shadow:0 0 60px rgba(47,185,232,.45), 0 0 140px rgba(47,185,232,.15);
+  animation:emblem-glow 3.5s ease-in-out infinite;
+}
+@keyframes emblem-glow{
+  0%,100%{box-shadow:0 0 60px rgba(47,185,232,.45), 0 0 140px rgba(47,185,232,.15)}
+  50%{box-shadow:0 0 80px rgba(92,209,255,.6), 0 0 180px rgba(47,185,232,.25)}
+}
 .cta .sec-lede{margin:0 auto 36px}
 .wl{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px}
 .wl input{
@@ -347,7 +363,7 @@ footer{
 }
 footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
 footer .brand{display:flex;align-items:center;gap:12px}
-footer .brand img{height:34px;width:34px;object-fit:cover;object-position:top center;border-radius:50%}
+footer .brand img{height:36px;width:36px;object-fit:cover;border-radius:50%;box-shadow:0 0 12px rgba(47,185,232,.3)}
 footer .logo{font-family:'Cinzel',serif;font-weight:900;letter-spacing:.24em;color:var(--hot)}
 footer .domain{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--molten);letter-spacing:.06em;margin-top:4px;display:block}
 footer p.legal{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ash-dim);letter-spacing:.06em;max-width:640px}
@@ -384,7 +400,7 @@ footer p.legal{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(-
 <body>
 
 <nav aria-label="Main">
-  <a class="logo" href="#top"><img src="assets/logo.png" alt="FORGE emblem">F<em>O</em>RGE</a>
+  <a class="logo" href="#top"><img src="assets/emblem.png" alt="FORGE emblem">F<em>O</em>RGE</a>
   <ul>
     <li class="hide-m"><a href="#opportunity">Opportunity</a></li>
     <li class="hide-m"><a href="#pillars">Platform</a></li>
@@ -933,6 +949,7 @@ agent.<span class="fn">publish_to_marketplace</span>(
 
 <section class="cta" id="waitlist">
   <div class="wrap">
+    <img class="emblem reveal" src="assets/emblem.png" alt="">
     <div class="sec-eyebrow reveal" style="justify-content:center;display:flex">Early Access</div>
     <h2 class="reveal">Take up the hammer</h2>
     <p class="sec-lede reveal">Waitlist members get first entry to the founding tournaments, early-builder status, and priority in the airdrop point system.</p>
@@ -947,7 +964,7 @@ agent.<span class="fn">publish_to_marketplace</span>(
 <footer>
   <div class="wrap">
     <div class="brand">
-      <img src="assets/logo.png" alt="FORGE emblem">
+      <img src="assets/emblem.png" alt="FORGE emblem">
       <div>
         <div class="logo">FORGE</div>
         <p style="margin-top:6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ash-dim)">Forge. Train. Battle. Earn.</p>
@@ -980,8 +997,8 @@ agent.<span class="fn">publish_to_marketplace</span>(
       const flick = .6 + .4*Math.sin(t/300+p.ph);
       const px=p.x*w, py=p.y*h;
       const g = ctx.createRadialGradient(px,py,0,px,py,p.s*4);
-      g.addColorStop(0,`rgba(255,158,44,${p.a*flick})`);
-      g.addColorStop(1,'rgba(255,107,26,0)');
+      g.addColorStop(0,`rgba(92,209,255,${p.a*flick})`);
+      g.addColorStop(1,'rgba(47,185,232,0)');
       ctx.fillStyle=g;
       ctx.beginPath(); ctx.arc(px,py,p.s*4,0,6.28); ctx.fill();
     }
@@ -1015,7 +1032,7 @@ agent.<span class="fn">publish_to_marketplace</span>(
       return `<div class="board-row${i===flashIdx?' flash':''}">
         <div class="rank">${String(i+1).padStart(2,'0')}</div>
         <div class="name">${a.name}<small>by ${a.by}</small></div>
-        <div class="bar"><span style="width:${wpct}%;background:${up?'linear-gradient(90deg,#a34d14,#ffb238)':'#4a555f'}"></span></div>
+        <div class="bar"><span style="width:${wpct}%;background:${up?'linear-gradient(90deg,#1f7fa8,#f5953f)':'#4a555f'}"></span></div>
         <div class="pnl ${up?'up':'down'}">${up?'+':''}${a.pnl.toFixed(1)}%</div>
       </div>`;
     }).join('');
